@@ -1,7 +1,5 @@
 # Apsis CSS Styleguide
 
-## General
-
 ### Stylus
 We use [Stylus](http://learnboost.github.io/stylus/) as our main CSS preprocessor.
 
@@ -30,15 +28,7 @@ Example:
 </div>
 ```
 
-## Variables and Mixins
-
-### Color variables
-
-Never use hard coded color values (i.e `#FFF`)
-
-We have color variables and all the color values should be extracted from there.
-
-### Helper mixins
+## Helper Mixins
 
 We have a number of helper mixins to make our lives easier.
 
@@ -82,7 +72,7 @@ Compiles into:
 ```
 
 ## Syntax
-- Use soft tabs with two spaces—they’re the only way to guarantee code renders the same in any environment.
+- Use soft tabs with four spaces—they’re the only way to guarantee code renders the same in any environment.
 - When grouping selectors, keep individual selectors to a single line.
 - Include one space before the opening brace of declaration blocks for legibility.
 - Place closing braces of declaration blocks on a new line.
@@ -91,6 +81,7 @@ Compiles into:
 - End all declarations with a semi-colon. The last declaration’s is optional, but your code is more error prone without it.
 - Comma-separated property values should include a space after each comma (e.g., box-shadow).
 - Don’t include spaces after commas within rgb(), rgba(), hsl(), hsla(), or rect() values. This helps differentiate multiple color values (comma, no space) from multiple property values (comma with space).
+- Never use hard coded color values (i.e `#FFF`). We have color variables and all the color values should be extracted from there.
 - Don’t prefix property values or color parameters with a leading zero (e.g., .5 instead of 0.5 and -.5px instead of -0.5px).
 - Quote attribute values in selectors, e.g., input[type=“text”]. They’re only optional in some cases, and it’s a good practice for consistency.
 - Avoid specifying units for zero values, e.g., margin: 0; instead of margin: 0px;.
@@ -101,7 +92,7 @@ Bad CSS:
   padding:15px;
   margin:0px 0px 15px;
   background-color:rgba(0, 0, 0, 0.5);
-  box-shadow:0px 1px 2px #CCC,inset 0 1px 0 #FFFFFF
+  box-shadow:0px 1px 2px #ccc,inset 0 1px 0 #FFFFFF
 }
 ```
 
@@ -113,7 +104,7 @@ Good CSS:
   padding: 15px;
   margin-bottom: 15px;
   background-color: rgba(0,0,0,.5);
-  box-shadow: 0 1px 2px #ccc, inset 0 1px 0 #fff;
+  box-shadow: 0 1px 2px COLORS['black']['500'], inset 0 1px 0 COLORS['white']['main'];
 }
 ```
 
@@ -129,7 +120,7 @@ Positioning comes first because it can remove an element from the normal flow of
 
 Everything else takes place inside the component or without impacting the previous two sections, and thus they come last.
 
-```
+```css
 .a_DeclarationOrder {
   /* Positioning */
   position: absolute;
@@ -137,24 +128,23 @@ Everything else takes place inside the component or without impacting the previo
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 100;
+  z-index: ZINDEX.component;
 
   /* Box-model */
   display: block;
   float: right;
-  width: 100px;
-  height: 100px;
+  width: remify(100px);
+  height: remify(100px);
 
   /* Typography */
-  font: normal 13px “Helvetica Neue”, sans-serif;
   line-height: 1.5;
-  color: #333;
+  color: COLOR['black']['main'];
   text-align: center;
 
   /* Visual */
-  background-color: #f5f5f5;
-  border: 1px solid #e5e5e5;
-  border-radius: 3px;
+  background-color: COLORS['green']['400'];
+  border: 1px solid COLORS['green']['800'];
+  border-radius: BORDER.radiusLarge;
 
   /* Misc */
   opacity: 1;
