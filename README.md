@@ -89,8 +89,8 @@ Compiles into:
 Bad CSS:
 ```css
 .selector, .selector-secondary, .selector[type=text] {
-  padding:15px;
   margin:0px 0px 15px;
+  color:#a4a4a4;
   background-color:rgba(0, 0, 0, 0.5);
   box-shadow:0px 1px 2px #ccc,inset 0 1px 0 #FFFFFF
 }
@@ -101,10 +101,10 @@ Good CSS:
 .a_Selector,
 .a_Selector-secondary,
 .a_Selector[type=“text”] {
-  padding: 15px;
   margin-bottom: 15px;
+  color: COLORS['black']['500'];
   background-color: rgba(0,0,0,.5);
-  box-shadow: 0 1px 2px COLORS['black']['500'], inset 0 1px 0 COLORS['white']['main'];
+  box-shadow: shadow(1);
 }
 ```
 
