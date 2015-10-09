@@ -102,7 +102,7 @@ Good CSS:
 .a_Selector-secondary,
 .a_Selector[type=“text”] {
   margin-bottom: 15px;
-  color: COLORS['black']['500'];
+  color: COLORS['grey']['dark'];
   background-color: rgba(0,0,0,.5);
   box-shadow: shadow(1);
 }
@@ -142,8 +142,8 @@ Everything else takes place inside the component or without impacting the previo
   text-align: center;
 
   /* Visual */
-  background-color: COLORS['green']['400'];
-  border: 1px solid COLORS['green']['800'];
+  background-color: COLORS['green']['light'];
+  border: 1px solid COLORS['green']['dark'];
   border-radius: BORDER.radiusLarge;
 
   /* Misc */
